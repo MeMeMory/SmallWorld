@@ -123,19 +123,28 @@ header .navbar .header-container .navigation .menu-right .menu-contact a {
   padding: 0 5px;
   cursor: pointer;
 }
-header .navbar .header-container .navigation .menu-right .user-login .profile {
+header .navbar .header-container .navigation .menu-right .profile {
+  cursor: pointer;
+  border: none;
+  outline: none !important;
   display: flex;
   align-items: center;
   text-align: center;
   background: none;
 }
-header .navbar .header-container .navigation .menu-right .user-login .profile img {
+header .navbar .header-container .navigation .menu-right .profile img {
   padding: 0px 7px;
 }
-header .navbar .header-container .navigation .menu-right .user-login .profile span {
+header .navbar .header-container .navigation .menu-right .profile span {
   font-size: calc(11px + (14 - 11) * ((100vw - 769px) / (1440 - 769)));
   line-height: 136%;
   color: #27211e;
+}
+header .navbar .header-container .navigation .menu-right .profile span:active {
+  color: #367d32;
+}
+header .navbar .header-container .navigation .menu-right .profile span:hover {
+  color: #367d32;
 }
 
 body {
@@ -148,7 +157,7 @@ body {
 }
 
 .container {
-  max-width: 1236px;
+  max-width: 960px;
   position: relative;
   padding-right: 15px;
   padding-left: 15px;
@@ -167,6 +176,7 @@ body {
 
 .production {
   display: flex;
+  padding-bottom: 100px;
 }
 .production .some-img {
   width: 720px;
@@ -201,4 +211,75 @@ body {
 }
 .production .about-production .info-product p {
   padding-right: 50px;
+}
+
+.news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 100px;
+}
+.news .top-content {
+  padding-bottom: 100px;
+}
+.news .top-content h2 {
+  font-size: 40px;
+  line-height: 136%;
+  padding-bottom: 25px;
+}
+.news .top-content p {
+  font-size: 15px;
+  line-height: 136%;
+}
+.news .bottom-content {
+  display: flex;
+  justify-content: space-between;
+}
+.news .bottom-content img {
+  width: 100%;
+  height: 340px;
+  margin-bottom: 40px;
+}
+.news .bottom-content .center {
+  width: 440px;
+  align-items: center;
+  text-align: center;
+}
+.news .bottom-content .news-2 {
+  margin-top: 200px;
+}
+.news .bottom-content .about-img {
+  display: flex;
+  flex-direction: column;
+}
+.news .bottom-content .about-img h3 {
+  font-size: 19px;
+  line-height: 136%;
+  padding-bottom: 25px;
+}
+.news .bottom-content .about-img p {
+  line-height: 136%;
+}
+
+.about-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.about-us h2 {
+  font-size: 40px;
+  line-height: 136%;
+  padding-bottom: 40px;
+}
+.about-us .fans {
+  font-size: 18px;
+  line-height: 136%;
+  padding-bottom: 30px;
+}
+.about-us .description {
+  width: 60%;
+  font-size: 18px;
+  line-height: 136%;
 }
