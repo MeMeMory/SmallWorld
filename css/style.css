@@ -48,7 +48,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Yeseva One";
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
 }
 
@@ -69,6 +69,10 @@ header .navbar .header-container {
   text-align: center;
   justify-content: space-between;
 }
+header .navbar .header-container .menu-brand {
+  width: 100%;
+  border-bottom: 1px solid black;
+}
 header .navbar .header-container .menu-brand .navbar-brand {
   text-decoration: none;
   margin: 0 auto;
@@ -76,22 +80,18 @@ header .navbar .header-container .menu-brand .navbar-brand {
   line-height: 136%;
   color: #27211e;
 }
-header .navbar .header-container .line {
-  width: 940px;
-  height: 0.5px;
-  background-color: #000000;
-}
 header .navbar .header-container .navigation {
   margin-top: 15px;
-  width: 940px;
+  width: 100%;
   min-width: 720px;
   display: flex;
+  padding: 0 15px;
   justify-content: space-between;
 }
 header .navbar .header-container .navigation .navbar-menu {
   display: flex;
   flex-direction: row;
-  margin-left: calc(70px + (140 - 70) * ((100vw - 769px) / (1440 - 769)));
+  margin-left: calc(50px + (140 - 50) * ((100vw - 769px) / (1440 - 769)));
 }
 header .navbar .header-container .navigation .navbar-menu .nav-item .nav-link {
   padding-right: calc(7px + (10 - 7) * ((100vw - 769px) / (1440 - 769)));
@@ -151,7 +151,7 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100%;
-  font-family: "Nunito Sans";
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   color: #27211e;
 }
@@ -164,14 +164,20 @@ body {
   margin: 0 auto !important;
 }
 
-.main-img {
-  transform: translateY(-160px);
-  height: 800px;
+.main-img .container {
+  max-width: calc(760px + (1256 - 760) * ((100vw - 769px) / (1440 - 769)));
+  align-items: center;
+  text-align: center;
 }
-.main-img img {
-  opacity: 0.85;
+.main-img .container img {
   width: 100%;
   height: 100%;
+  margin-bottom: 70px;
+}
+.main-img .container .titte-logo {
+  font-size: 60px;
+  line-height: 125%;
+  margin-bottom: 90px;
 }
 
 .production {
@@ -267,19 +273,113 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding-bottom: 50px;
 }
-.about-us h2 {
+.about-us .about-us__title {
   font-size: 40px;
-  line-height: 136%;
-  padding-bottom: 40px;
+  line-height: 185%;
+  padding-bottom: 25px;
 }
-.about-us .fans {
+.about-us .about-us__fans {
   font-size: 18px;
-  line-height: 136%;
+  line-height: 185%;
   padding-bottom: 30px;
 }
-.about-us .description {
+.about-us .about-us__description {
+  overflow-wrap: break-word;
+  color: #27211e;
   width: 60%;
   font-size: 18px;
+  line-height: 185%;
+}
+
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.feedback .feedback-title {
+  font-size: 40px;
   line-height: 136%;
+  margin-bottom: 20px;
+}
+.feedback .feedback-form {
+  width: 780px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.feedback .feedback-form input {
+  color: black;
+  font-size: 15px;
+  line-height: 200%;
+  padding: 3px 10px 3px 15px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 10px;
+  outline: none;
+  overflow: auto;
+}
+.feedback .feedback-form .input:active,
+.feedback .feedback-form :focus {
+  border: 1px solid #000;
+}
+.feedback .feedback-form .form-row {
+  padding: 0;
+  border: none;
+}
+.feedback .feedback-form .form-row .form-name {
+  width: 48%;
+  margin-right: 25px;
+}
+.feedback .feedback-form .form-row .form-mail {
+  width: 48%;
+}
+.feedback .feedback-form .form-theme {
+  width: 100%;
+}
+.feedback .feedback-form .form-text {
+  color: black;
+  height: 100px;
+  padding: 11px 10px 3px 16px;
+  border-bottom: 1px solid #000;
+  margin-bottom: 30px;
+  overflow: auto;
+  outline: none;
+}
+.feedback .feedback-form .form-button {
+  font-size: 18px;
+  color: #ffe0d1;
+  height: 50px;
+  background-color: #27211e;
+  outline: none;
+}
+.feedback .feedback-form button:active {
+  color: white;
+  background-color: #261307;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer img {
+  height: 25px;
+}
+.footer .social {
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.footer .social a {
+  height: 100%;
+  padding: 0 5px;
+  cursor: pointer;
+}
+.footer .creator {
+  font-size: 12px;
+  margin-bottom: 25px;
 }
