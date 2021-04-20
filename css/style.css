@@ -461,7 +461,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-bottom: calc(150px + (200 - 150) * ((100vw - 769px) / (1440 - 769)));
+  padding-bottom: calc(50px + (110 - 50) * ((100vw - 769px) / (1440 - 769)));
 }
 .news .top-content {
   margin-bottom: calc(60px + (100 - 60) * ((100vw - 769px) / (1440 - 769)));
