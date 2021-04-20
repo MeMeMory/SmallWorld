@@ -491,7 +491,7 @@ body {
   text-align: center;
 }
 .news .bottom-content .news-2 {
-  margin-top: calc(12 0px + (200 - 120) * ((100vw - 769px) / (1440 - 769)));
+  margin-top: calc(120px + (200 - 120) * ((100vw - 769px) / (1440 - 769)));
 }
 .news .bottom-content .about-img {
   display: flex;
