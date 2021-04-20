@@ -1,92 +1,102 @@
-const navigateSection = document.querySelectorAll('.card-name');
-const pic = document.querySelector('.active-img');
+"use strict"
 
-const city = document.querySelector('.card-city');
-const area = document.querySelector('.card-area');
-const time = document.querySelector('.card-time');
-const cost = document.querySelector('.card-cost');
-
-const prev = document.querySelector('.arr-left');
-const next = document.querySelector('.arr-right');
-const circle = document.querySelectorAll('.circle');
-
-const slide = [{
-		pic: 'img-webp/slide-image1.webp',
-		city: 'Rostov-on-Don LCD admiral',
-		area: '81 m2',
-		time: '3.5 months',
-		cost: 'Upon request',
+const isMobile = {
+	Android: function () {
+		return navigator.userAgent.match(/Android/i);
 	},
-	{
-		pic: 'img-webp/slide-image2.webp',
-		city: 'Sochi Thieves',
-		area: '105 m2',
-		time: '4 months',
-		cost: 'Upon request',
+	BlackBerry: function () {
+		return navigator.userAgent.match(/BlackBerry/i);
 	},
-	{
-		pic: 'img-webp/slide-image3.webp',
-		city: 'Rostov-on-Don Patriotic',
-		area: '93 m2',
-		time: '3 months',
-		cost: 'Upon request',
+	iOS: function () {
+		return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+	},
+	Opera: function () {
+		return navigator.userAgent.match(/Opera Mini/i);
+	},
+	Windows: function () {
+		return navigator.userAgent.match(/IEMobile/i);
+	},
+	any: function () {
+		return (
+			isMobile.Android() ||
+			isMobile.BlackBerry() ||
+			isMobile.iOS() ||
+			isMobile.Opera() ||
+			isMobile.Windows());
 	}
-];
-
-let currIndex = slide.length;
-let startIndex = 0;
-
-const activeDot = (circle, dot) => {
-	circle.forEach((dot) => {
-		dot.classList.remove('enabled');
-	});
-	dot.classList.add('enabled');
 };
 
-const activeNav = (navigateSection, nav) => {
-	navigateSection.forEach((nav) => {
-		nav.classList.remove('active');
-	});
-	nav.classList.add('active');
-};
+if (isMobile.any()) {
+	document.body.classList.add('_touch');
 
-let slider = (index) => {
-	pic.src = slide[index].pic;
-	city.innerHTML = slide[index].city;
-	area.innerHTML = slide[index].area;
-	time.innerHTML = slide[index].time;
-	cost.innerHTML = slide[index].cost;
-	activeDot(circle, circle[index]);
-	activeNav(navigateSection, navigateSection[index]);
-};
-
-next.addEventListener('click', () => {
-	if (startIndex === currIndex - 1) {
-		startIndex = 0;
-	} else {
-		startIndex += 1;
+	let menuArrows = document.querySelectorAll('.menu__arrow');
+	if (menuArrows.length > 0) {
+		for (let index = 0; index < menuArrows.length; index++) {
+			const menuArrow = menuArrows[index];
+			menuArrow.addEventListener("click", function (e) {
+				menuArrow.parentElement.classList.toggle('_active');
+			});
+		}
 	}
-	slider(startIndex);
-});
 
-prev.addEventListener('click', () => {
-	if (startIndex === 0) {
-		startIndex = currIndex - 1;
-	} else {
-		startIndex -= 1;
+} else {
+	document.body.classList.add('_pc');
+}
+
+// Меню бургер
+const iconMenu = document.querySelector('.menu__icon');
+const menuBody = document.querySelector('.menu__body');
+if (iconMenu) {
+	iconMenu.addEventListener("click", function (e) {
+		document.body.classList.toggle('_lock');
+		iconMenu.classList.toggle('_active');
+		menuBody.classList.toggle('_active');
+	});
+}
+
+
+// Прокрутка при клике
+const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
+if (menuLinks.length > 0) {
+	menuLinks.forEach(menuLink => {
+		menuLink.addEventListener("click", onMenuLinkClick);
+	});
+
+	function onMenuLinkClick(e) {
+		const menuLink = e.target;
+		if (menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)) {
+			const gotoBlock = document.querySelector(menuLink.dataset.goto);
+			const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - document.querySelector('header').offsetHeight;
+
+			if (iconMenu.classList.contains('_active')) {
+				document.body.classList.remove('_lock');
+				iconMenu.classList.remove('_active');
+				menuBody.classList.remove('_active');
+			}
+
+			window.scrollTo({
+				top: gotoBlockValue,
+				behavior: "smooth"
+			});
+			e.preventDefault();
+		}
 	}
-	slider(startIndex);
-});
-
-navigateSection.forEach((item, i) => {
-	item.addEventListener('click', () => {
-		slider(i);
-	});
-});
+}
 
 
-circle.forEach((item, i) => {
-	item.addEventListener('click', () => {
-		slider(i);
-	});
+$('img.img-svg').each(function () {
+	var $img = $(this);
+	var imgClass = $img.attr('class');
+	var imgURL = $img.attr('src');
+	$.get(imgURL, function (data) {
+		var $svg = $(data).find('svg');
+		if (typeof imgClass !== 'undefined') {
+			$svg = $svg.attr('class', imgClass + ' replaced-svg');
+		}
+		$svg = $svg.removeAttr('xmlns:a');
+		if (!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
+			$svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
+		}
+		$img.replaceWith($svg);
+	}, 'xml');
 });
