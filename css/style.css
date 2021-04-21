@@ -461,7 +461,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-bottom: calc(150px + (200 - 150) * ((100vw - 769px) / (1440 - 769)));
+  padding-bottom: calc(70px + (120 - 70) * ((100vw - 769px) / (1440 - 769)));
 }
 .news .top-content {
   margin-bottom: calc(60px + (100 - 60) * ((100vw - 769px) / (1440 - 769)));
@@ -560,18 +560,88 @@ body {
     flex-direction: column;
   }
   .news .container .bottom-content .center {
-    width: 210px;
+    width: 360px;
   }
   .news .container .bottom-content .center img {
-    height: 150px;
+    height: 250px;
     margin-bottom: 20px;
   }
   .news .container .bottom-content .center .about-img h3 {
-    font-size: 15px;
+    font-size: 14px;
     padding-bottom: 15px;
   }
   .news .container .bottom-content .news-2 {
     margin-top: 20px;
+  }
+}
+.galery .container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.galery .container .galery-title {
+  text-align: center;
+  font-size: 30px;
+  line-height: 125%;
+  padding-bottom: 20px;
+}
+.galery .container .galery-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.galery .container .galery-row .galery__img {
+  padding: 10px 10px;
+  width: calc(365px + (465 - 365) * ((100vw - 769px) / (1024 - 769)));
+  max-width: 465px;
+  height: calc(280px + (320 - 280) * ((100vw - 769px) / (1024 - 769)));
+  max-height: 320px;
+}
+.galery .container .galery-row .galery__img-hidden {
+  display: none;
+}
+.galery .container .btn-more {
+  width: 20%;
+  font-size: 18px;
+  line-height: 50px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in;
+  outline: none;
+}
+.galery .container .btn-more:hover {
+  background-color: #e4e4e4;
+}
+
+@media (max-width: 767px) {
+  .galery .container .galery-row .galery__img {
+    padding: 10px 10px;
+    width: calc(210px + (340 - 210) * ((100vw - 465px) / (769 - 465)));
+    height: calc(180px + (240 - 180) * ((100vw - 465px) / (769 - 465)));
+  }
+  .galery .container .btn-more {
+    width: 30%;
+  }
+}
+@media (max-width: 465px) {
+  .galery .container .galery-row {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .galery .container .galery-row .galery__img {
+    padding: 10px 10px;
+    width: 360px;
+    height: 250px;
+  }
+  .galery .container .btn-more {
+    width: 30%;
   }
 }
 .about-us {

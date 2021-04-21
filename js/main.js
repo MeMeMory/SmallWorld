@@ -54,7 +54,6 @@ if (iconMenu) {
 	});
 }
 
-
 // Прокрутка при клике
 const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
 if (menuLinks.length > 0) {
@@ -84,6 +83,7 @@ if (menuLinks.length > 0) {
 }
 
 
+// Изменение svg формата изображений
 $('img.img-svg').each(function () {
 	var $img = $(this);
 	var imgClass = $img.attr('class');
@@ -100,3 +100,24 @@ $('img.img-svg').each(function () {
 		$img.replaceWith($svg);
 	}, 'xml');
 });
+
+
+// Добавление и удаление картинок по клику
+const showMore = document.querySelector('.btn-more')
+const hiddenImg = document.querySelectorAll('.galery__img-hidden')
+showMore.onclick = function () {
+
+	if (showMore.dataset.options == 'hidden') {
+		hiddenImg.forEach(function (item) {
+			item.style.display = 'block';
+		})
+		showMore.innerText = 'Hide More';
+		showMore.dataset.options = 'visible';
+	} else if (showMore.dataset.options == 'visible') {
+		hiddenImg.forEach(function (item) {
+			item.style.display = 'none';
+		})
+		showMore.innerText = 'Show More';
+		showMore.dataset.options = 'hidden';
+	}
+}
