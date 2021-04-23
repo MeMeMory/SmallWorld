@@ -283,8 +283,8 @@ body {
   text-align: center;
 }
 .main-img p {
-  top: calc(200px + (300 - 200) * ((100vw - 769px) / (1440 - 769)));
-  right: calc(120px + (350 - 120) * ((100vw - 769px) / (1440 - 769)));
+	top: calc(200px + (300 - 200) * ((100vw - 769px) / (1440 - 769)));
+	right: calc(130px + (400 - 130) * ((100vw - 769px) / (1440 - 769)));
   position: absolute;
   color: white;
   font-size: calc(42px + (50 - 42) * ((100vw - 769px) / (1440 - 769)));
